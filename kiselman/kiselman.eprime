@@ -15,8 +15,8 @@ forAll i : int(1..maxLen) .
         $ If they are non-zero and the same...
         (s[i] = s[j]) /\ (s[i] != 0) /\ (s[j] != 0) ->
             $ There must exist a < and > in the range (exclusive)
-            exists ls, gt : int((i+1)..(j-1)) .
-                ((s[ls] != 0) /\ (s[ls] < s[i])) /\ (s[gt] > s[i]),
+            exists lt, gt : int((i+1)..(j-1)) .
+                ((s[lt] != 0) /\ (s[lt] < s[i])) /\ (s[gt] > s[i]),
 
 $ Remove equivalence classes
 forAll i : int(1..(maxLen-1)) .
