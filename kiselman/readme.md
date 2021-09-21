@@ -8,4 +8,4 @@ Such that between every pair of occurences of integer i there exists an integer 
 e.g. for n = 3, a solution is [2, 3, 1, 2]
 
 ## Quickstart
-./savilerow -run-solver -all-solutions -solutions-to-null kiselman.eprime kiselman.param
+`./savilerow -run-solver -all-solutions -solutions-to-null kiselman.eprime kiselman.param`
