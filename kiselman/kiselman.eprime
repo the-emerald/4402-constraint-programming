@@ -1,0 +1,29 @@
+language ESSENCE' 1.0
+
+given n : int
+
+letting maxLen be 2**(((n+1)/2)+1)-2
+letting values be domain int(0..n)
+
+find s : matrix indexed by [int(1..maxLen)] of values
+
+such that
+
+$ For every pair of values...
+forAll i : int(1..maxLen) .
+    forAll j : int((i+1)..maxLen) .
+        $ If they are non-zero and the same...
+        (s[i] = s[j]) /\ (s[i] != 0) /\ (s[j] != 0) ->
+            $ There must exist a < and > in the range (exclusive)
+            exists ls, gt : int((i+1)..(j-1)) .
+                ((s[ls] != 0) /\ (s[ls] < s[i])) /\ (s[gt] > s[i]),
+
+$ Remove equivalence classes
+forAll i : int(1..(maxLen-1)) .
+    $ The first zero seen...
+    (s[i] = 0) ->
+        $ Must not contain non-zero elements until end of sequence
+        (s[i+1] = 0),
+
+true
+
